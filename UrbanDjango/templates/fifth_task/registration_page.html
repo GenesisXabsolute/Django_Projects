@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if not access%}
+        <h1>{{error}}</h1>
+    {% endif %}
+     <form method="post">
+        {% csrf_token%}
+        <label for="username">Введите логин</label>
+        <input type="text" name="username" id="username" maxlength="30" required>
+
+        <label for="'password">Введите пароль</label>
+        <input type="int" name="password" id="password" minlength="8" required>
+
+        <label for="repeat_password">Повторите пароль</label> 
+        <input type="int" name="repeat_password" id="repeat_password" minlength="8" required>
+
+        <label for="'age">Введите свой возраст</label>
+        <input type="Integer" name="age" id="age" maxlength="3" required>
+        <button type="submit">Зарегистрироваться</button>
+     </form>
+    {% if access%}
+        <h1>{{access}}</h1>
+    {%endif%}
+</body>
+</html>
